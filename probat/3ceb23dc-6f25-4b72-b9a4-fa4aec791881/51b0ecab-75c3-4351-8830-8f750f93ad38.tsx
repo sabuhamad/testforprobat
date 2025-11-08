@@ -1,14 +1,10 @@
-import React from "react";
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
-import './Features.css';
-
-const __PROBAT_KEY__ = "src/components/Features.tsx";
+import React from 'react'
+import './Features.css'
 
 interface Feature {
-  icon: string;
-  title: string;
-  description: string;
+  icon: string
+  title: string
+  description: string
 }
 
 const Features: React.FC = () => {
@@ -43,13 +39,13 @@ const Features: React.FC = () => {
       title: 'Support',
       description: '24/7 customer support with dedicated success managers.'
     }
-  ];
+  ]
 
   return (
     <section className="features" id="features">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Why Choose Us?</h2>
+          <h2 className="section-title" style={{ color: '#667EEA' }}>Why Choose Us?</h2>
           <p className="section-description">
             Discover the features that make our platform the best choice for your needs.
           </p>
@@ -68,13 +64,7 @@ const Features: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Features as any, { proposalId: meta.proposalId, registry: reg })
-    : Features;
-})();
+export default Features
