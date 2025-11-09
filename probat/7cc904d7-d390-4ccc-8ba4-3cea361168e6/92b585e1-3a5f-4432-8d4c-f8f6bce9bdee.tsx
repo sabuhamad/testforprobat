@@ -1,9 +1,5 @@
-import React from "react";
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
-import './Features.css';
-
-const __PROBAT_KEY__ = "src/components/Features.tsx";
+import React from 'react';
+import '../../src/components/Features.css';
 
 interface Feature {
   icon: string;
@@ -49,8 +45,8 @@ const Features: React.FC = () => {
     <section className="features" id="features">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Why Choose Us?</h2>
-          <p className="section-description">
+          <h2 className="section-title" style={{ color: '#000000' }}>Why Choose Us?</h2>
+          <p className="section-description" style={{ color: '#667EEA' }}>
             Discover the features that make our platform the best choice for your needs.
           </p>
         </div>
@@ -61,8 +57,8 @@ const Features: React.FC = () => {
               <div className="feature-icon">
                 {feature.icon}
               </div>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
+              <h3 className="feature-title" style={{ color: '#000000' }}>{feature.title}</h3>
+              <p className="feature-description" style={{ color: '#667EEA' }}>{feature.description}</p>
             </div>
           ))}
         </div>
@@ -71,11 +67,4 @@ const Features: React.FC = () => {
   );
 };
 
-// Probat Generate Lines.
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Features as any, { proposalId: meta.proposalId, registry: reg })
-    : Features;
-})();
+export default Features;
