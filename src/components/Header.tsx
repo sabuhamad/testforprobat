@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
+import { withExperiment } from "../../probat/runtime";
+import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
 import './Header.css'
+
+const __PROBAT_KEY__ = "src/components/Header.tsx";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -43,4 +47,11 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+// Probat Generate Lines.
+export default (() => {
+  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
+  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
+  return (meta?.proposalId && reg)
+    ? withExperiment<any>(Header as any, { proposalId: meta.proposalId, registry: reg })
+    : Header;
+})();
