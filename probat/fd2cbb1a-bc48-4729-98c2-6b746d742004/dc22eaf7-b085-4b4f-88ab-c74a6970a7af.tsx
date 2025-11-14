@@ -1,13 +1,28 @@
 import React from 'react'
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
 import './Hero.css'
-
-const __PROBAT_KEY__ = "src/components/Hero.tsx";
 
 const Hero: React.FC = () => {
   return (
     <section className="hero" id="home">
+      <style>{`
+        .btn-primary {
+          background-color: #000000; /* Dark neutral background */
+          color: #F7FAFC; /* Light neutral text for contrast */
+        }
+        .btn-primary:hover {
+          background-color: #4A5568; /* Secondary dark blue on hover */
+          color: #F7FAFC;
+        }
+        .btn-outline {
+          border-color: #667EEA;
+          color: #667EEA;
+          background-color: transparent;
+        }
+        .btn-outline:hover {
+          background-color: #667EEA;
+          color: #F7FAFC;
+        }
+      `}</style>
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
@@ -65,11 +80,4 @@ const Hero: React.FC = () => {
   )
 }
 
-// Probat Generate Lines.
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Hero as any, { proposalId: meta.proposalId, registry: reg })
-    : Hero;
-})();
+export default Hero
