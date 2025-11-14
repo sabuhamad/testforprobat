@@ -1,9 +1,5 @@
-import React from "react";
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
-import './Hero.css';
-
-const __PROBAT_KEY__ = "src/components/Hero.tsx";
+import React from 'react'
+import './Hero.css'
 
 const Hero: React.FC = () => {
   return (
@@ -19,7 +15,7 @@ const Hero: React.FC = () => {
               Create stunning websites and applications with our modern tools and 
               cutting-edge technology. Join thousands of developers who trust our platform.
             </p>
-            <div className="hero-actions">
+            <div className="hero-actions" style={{ gap: '2rem' }}>
               <button className="btn btn-primary btn-large">
                 Get Started Free
               </button>
@@ -65,11 +61,4 @@ const Hero: React.FC = () => {
   )
 }
 
-// Probat Generate Lines.
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Hero as any, { proposalId: meta.proposalId, registry: reg })
-    : Hero;
-})();
+export default Hero
