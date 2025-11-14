@@ -1,9 +1,5 @@
 import React from 'react'
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
 import './Hero.css'
-
-const __PROBAT_KEY__ = "src/components/Hero.tsx";
 
 const Hero: React.FC = () => {
   return (
@@ -20,10 +16,10 @@ const Hero: React.FC = () => {
               cutting-edge technology. Join thousands of developers who trust our platform.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary btn-large">
+              <button className="btn btn-primary btn-large" style={{ backgroundColor: '#F6E05E', color: '#000000', borderColor: '#F6E05E' }}>
                 Get Started Free
               </button>
-              <button className="btn btn-outline btn-large">
+              <button className="btn btn-outline btn-large" style={{ backgroundColor: 'transparent', color: '#4A5568', borderColor: '#4A5568' }}>
                 Watch Demo
               </button>
             </div>
@@ -65,10 +61,4 @@ const Hero: React.FC = () => {
   )
 }
 
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Hero as any, { proposalId: meta.proposalId, registry: reg })
-    : Hero;
-})();
+export default Hero
