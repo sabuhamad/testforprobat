@@ -1,9 +1,5 @@
-import React from "react";
-import './Features.css';
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
-
-const __PROBAT_KEY__ = "src/components/Features.tsx";
+import React from 'react'
+import '../../src/components/Features.css'
 
 interface Feature {
   icon: string
@@ -57,7 +53,16 @@ const Features: React.FC = () => {
         
         <div className="features-grid">
           {features.map((feature, index) => (
-            <div key={index} className="feature-card">
+            <div
+              key={index}
+              className="feature-card"
+              style={{
+                borderRadius: '4px',
+                border: '1px solid rgba(74, 85, 104, 0.2)', /* Using Secondary color with transparency */
+                boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)',
+                padding: '20px'
+              }}
+            >
               <div className="feature-icon">
                 {feature.icon}
               </div>
@@ -71,11 +76,4 @@ const Features: React.FC = () => {
   )
 }
 
-// Probat Generate Lines.
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__] as Record<string, React.ComponentType<any>> | undefined;
-  return (meta?.proposalId && reg)
-    ? withExperiment<any>(Features as any, { proposalId: meta.proposalId, registry: reg })
-    : Features;
-})();
+export default Features
