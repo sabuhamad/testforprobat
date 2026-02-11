@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Header.css'
+import GetStartedButton from './GetStartedButton'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
 
         <div className="nav-actions">
           <button className="btn btn-outline">Sign In</button>
-          <button className="btn btn-primary">Get Started</button>
+          <GetStartedButton label="Get Started" />
         </div>
 
         <button 

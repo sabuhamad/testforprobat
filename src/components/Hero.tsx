@@ -1,5 +1,6 @@
 import React from 'react'
 import './Hero.css'
+import GetStartedButton from './GetStartedButton'
 
 const Hero: React.FC = () => {
   return (
@@ -16,9 +17,7 @@ const Hero: React.FC = () => {
               cutting-edge technology. Join thousands of developers who trust our platform.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary btn-large">
-                Get Started Free
-              </button>
+              <GetStartedButton large />
               <button className="btn btn-outline btn-large">
                 Watch Demo
               </button>
