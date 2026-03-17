@@ -30,26 +30,27 @@
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: #a0aec0;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .social-link:hover {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .footer-subtitle {
